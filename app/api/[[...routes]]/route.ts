@@ -45,16 +45,16 @@ app.post(
   async (c) => {
     const { number } = c.req.valid('json');
 
-    // Fetch random words using SQL `ORDER BY RANDOM()`
     const result = await db
-      .select()
+      .select({ word: words.word })
       .from(words)
       .orderBy(sql`RANDOM()`)
       .limit(number);
 
-    return c.json({
-      words: result,
-    });
+    // Extract only word values from result
+    const wordsArray = result.map((row) => row.word);
+
+    return c.json(wordsArray);
   }
 );
 

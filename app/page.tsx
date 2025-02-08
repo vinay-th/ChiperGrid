@@ -49,9 +49,7 @@ export default function Home() {
             FAQ
           </Link>
         </nav>
-        <Button variant="outline" className="hidden md:flex">
-          Sign In
-        </Button>
+        <Button variant="default" className="hidden"></Button>
       </header>
 
       {/* Hero Content */}
@@ -65,14 +63,16 @@ export default function Home() {
           clues to lead your team to victory?
         </p>
         <div className="flex justify-center items-center gap-4">
-          <Button
-            size="lg"
-            className="bg-purple-600 hover:bg-purple-700 text-white px-8 group"
-          >
-            <ChevronLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
-            Play Now
-            <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
+          <Link href="/room">
+            <Button
+              size="lg"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-8 group"
+            >
+              <ChevronLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
+              Play Now
+              <ChevronRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </Link>
         </div>
       </section>
 

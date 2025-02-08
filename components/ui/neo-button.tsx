@@ -20,7 +20,7 @@ const buttonVariants = cva(
           'text-text bg-main border-2 border-border dark:border-darkBorder hover:translate-x-reverseBoxShadowX hover:translate-y-reverseBoxShadowY hover:shadow-light dark:hover:shadow-dark',
       },
       size: {
-        default: 'h-32 w-44 px-4 py-2',
+        default: 'h-32 w-46 px-4 py-2',
         sm: 'h-9 px-3',
         lg: 'h-11 px-8',
         icon: 'h-10 w-10',
