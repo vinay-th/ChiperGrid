@@ -3,6 +3,7 @@ import { handle } from 'hono/vercel';
 import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
 import { db } from 'db/drizzle';
+import { sql } from 'drizzle-orm';
 import { words } from 'db/schema';
 
 export const runtime = 'edge';
@@ -33,17 +34,26 @@ app.post(
   }
 );
 
-app.get(
+app.post(
   '/get-words',
   zValidator(
     'json',
     z.object({
-      number: z.number(),
+      number: z.number().min(1),
     })
   ),
-  (c) => {
+  async (c) => {
+    const { number } = c.req.valid('json');
+
+    // Fetch random words using SQL `ORDER BY RANDOM()`
+    const result = await db
+      .select()
+      .from(words)
+      .orderBy(sql`RANDOM()`)
+      .limit(number);
+
     return c.json({
-      message: 'Hello from Vinay!',
+      words: result,
     });
   }
 );
