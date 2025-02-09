@@ -39,7 +39,7 @@ export default function Room() {
   }
 
   return (
-    <AuroraBackground>
+    <AuroraBackground className="h-lvh overflow-hidden scroll-my-0">
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -48,21 +48,67 @@ export default function Room() {
           duration: 0.8,
           ease: 'easeInOut',
         }}
-        className="relative flex flex-col gap-4 items-center justify-center px-4"
+        className="relative flex flex-col gap-4 items-center justify-center px-1"
       >
-        <div className="grid grid-cols-5 grid-rows-5 gap-4">
+        <div className="mt-2 grid grid-cols-5 grid-rows-5 gap-4 phone:gap-1">
           {words.map((word, index) => (
             <Button
               key={index}
               variant="default"
               size="default"
-              className="text-lg bg-[#DAD2FF] rounded-md flex items-center justify-center"
+              className="text-xs font-bold bg-[#DAD2FF] rounded-md items-center justify-center phone:w-[70px] phone:h-[38px] phone:text-[0.55rem] "
             >
-              {word}
+              <p
+                style={{
+                  fontFamily: 'Futura-Bold-Cond',
+                  textTransform: 'uppercase',
+                }}
+              >
+                {word}
+              </p>
             </Button>
           ))}
         </div>
       </motion.div>
+      <section className="flex m-0 mt-4">
+        <div className="absolute flex justify-center items-center left-0 h-[400px] w-32    bg-[#74c4ea]">
+          <div className="flex flex-col items-center justify-center">
+            <p className="text-white text-sm">Operative(s)</p>
+            <Button
+              variant="default"
+              className="w-28 h-10 bg-blue-800 text-white border-blue-700"
+            >
+              Vinay
+            </Button>
+            <p className="text-white text-sm">Spymaster(s)</p>
+            <Button
+              variant="default"
+              className="w-28  h-10 bg-blue-800 text-white border-blue-700"
+            >
+              Batak
+            </Button>
+          </div>
+        </div>
+        <div className="absolute flex justify-center items-center right-0 h-[400px] w-32  bg-[#e0332d]">
+          <div className="flex flex-col items-center justify-center">
+            <p className="text-white text-sm">Operative(s)</p>
+            <Button
+              variant="default"
+              className="w-28 h-10 bg-blue-800 text-white border-blue-700"
+            >
+              Koi aur
+            </Button>
+            <p className="text-white text-sm">Spymaster(s)</p>
+            <Button
+              variant="default"
+              className="w-28  h-10 bg-blue-800 text-white border-blue-700"
+            >
+              Koi aur
+            </Button>
+          </div>
+        </div>
+        <div className="flex items-center justify-center h-[400px] w-32 bg-white"></div>
+      </section>
     </AuroraBackground>
   );
 }

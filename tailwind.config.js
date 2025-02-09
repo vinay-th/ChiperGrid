@@ -12,6 +12,13 @@ module.exports = {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
+    screens: {
+      phone: { min: '350px', max: '600px' },
+      tablet: '640px',
+      laptop: '1024px',
+      desktop: '1280px',
+      '2xl': '1536px',
+    },
     container: {
       center: true,
       padding: '2rem',
@@ -20,6 +27,12 @@ module.exports = {
       },
     },
     extend: {
+      utilities: {
+        '.word-break': {
+          'word-break': 'break-word',
+          'overflow-wrap': 'anywhere',
+        },
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -53,6 +66,11 @@ module.exports = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
+        },
+        hyphens: {
+          auto: 'auto',
+          manual: 'manual',
+          none: 'none',
         },
       },
       borderRadius: {
